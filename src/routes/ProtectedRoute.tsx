@@ -4,7 +4,7 @@ import { useProfile } from '@/features/profile/hooks'
 import type { Role } from '@/features/auth/hooks'
 
 function FullScreenLoader() {
-  return <div className="flex min-h-screen items-center justify-center text-slate-500">Caricamento…</div>
+  return <div className="flex min-h-screen items-center justify-center text-ink-soft">Caricamento…</div>
 }
 
 export function ProtectedRoute({ requireRole }: { requireRole?: Role }) {

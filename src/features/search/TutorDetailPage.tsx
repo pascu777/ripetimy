@@ -7,19 +7,19 @@ export function TutorDetailPage() {
   const { tutorId } = useParams<{ tutorId: string }>()
   const tutorQuery = useTutor(tutorId ?? '')
 
-  if (tutorQuery.isLoading) return <p className="text-sm text-slate-500">Caricamento…</p>
-  if (!tutorQuery.data) return <p className="text-sm text-slate-500">Tutor non trovato.</p>
+  if (tutorQuery.isLoading) return <p className="text-sm text-ink-soft">Caricamento…</p>
+  if (!tutorQuery.data) return <p className="text-sm text-ink-soft">Tutor non trovato.</p>
 
   const tutor = tutorQuery.data
 
   return (
     <div className="space-y-6">
       <Card>
-        <h1 className="text-2xl font-semibold text-slate-900">{tutor.full_name}</h1>
+        <h1 className="text-[26px] font-semibold tracking-tight text-ink">{tutor.full_name}</h1>
         {tutor.subjects.length > 0 && (
           <div className="mt-2 flex flex-wrap gap-1">
             {tutor.subjects.map((s) => (
-              <span key={s} className="rounded-full bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-700">
+              <span key={s} className="rounded-full bg-brand-50 px-2 py-0.5 text-xs font-medium text-brand-700">
                 {s}
               </span>
             ))}

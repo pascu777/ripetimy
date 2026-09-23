@@ -22,17 +22,19 @@ export function AppShell() {
   const links = profile?.role === 'tutor' ? tutorLinks : studentLinks
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      <header className="border-b border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-          <span className="text-lg font-semibold text-indigo-700">RipetiMy</span>
+    <div className="min-h-screen bg-canvas">
+      <header className="sticky top-0 z-30 border-b border-black/[0.06] bg-white/70 backdrop-blur-xl backdrop-saturate-150">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5">
+          <span className="text-[17px] font-semibold tracking-tight text-ink">RipetiMy</span>
           <nav className="flex items-center gap-1">
             {links.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `rounded-lg px-3 py-2 text-sm font-medium ${isActive ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600 hover:bg-slate-100'}`
+                  `rounded-full px-3.5 py-1.5 text-[14px] font-medium transition-colors ${
+                    isActive ? 'bg-black/[0.06] text-ink' : 'text-ink-soft hover:text-ink'
+                  }`
                 }
               >
                 {link.label}
@@ -41,14 +43,14 @@ export function AppShell() {
             <NotificationsBell />
             <button
               onClick={() => signOut.mutate()}
-              className="ml-2 rounded-lg px-3 py-2 text-sm font-medium text-slate-500 hover:bg-slate-100"
+              className="ml-1 rounded-full px-3.5 py-1.5 text-[14px] font-medium text-ink-soft transition-colors hover:text-ink"
             >
               Esci
             </button>
           </nav>
         </div>
       </header>
-      <main className="mx-auto max-w-5xl px-4 py-6">
+      <main className="mx-auto max-w-6xl px-6 py-8">
         <Outlet />
       </main>
     </div>

@@ -22,7 +22,7 @@ export function WeeklyScheduleEditor() {
   return (
     <div className="space-y-6">
       <Card>
-        <h2 className="mb-4 text-lg font-semibold text-slate-900">Aggiungi una fascia disponibile</h2>
+        <h2 className="mb-4 text-[17px] font-semibold tracking-tight text-ink">Aggiungi una fascia disponibile</h2>
         <form
           className="grid grid-cols-1 gap-4 sm:grid-cols-4 sm:items-end"
           onSubmit={(e) => {
@@ -48,7 +48,7 @@ export function WeeklyScheduleEditor() {
               type="time"
               value={startTime}
               onChange={(e) => setStartTime(e.target.value)}
-              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+              className="w-full rounded-xl border border-black/10 px-3 py-2 text-sm outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500"
             />
           </div>
           <div>
@@ -58,7 +58,7 @@ export function WeeklyScheduleEditor() {
               type="time"
               value={endTime}
               onChange={(e) => setEndTime(e.target.value)}
-              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+              className="w-full rounded-xl border border-black/10 px-3 py-2 text-sm outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500"
             />
           </div>
           <Button type="submit" disabled={createSlot.isPending}>
@@ -70,22 +70,22 @@ export function WeeklyScheduleEditor() {
       </Card>
 
       <Card>
-        <h2 className="mb-4 text-lg font-semibold text-slate-900">Le tue disponibilità</h2>
-        {slotsQuery.isLoading && <p className="text-sm text-slate-500">Caricamento…</p>}
+        <h2 className="mb-4 text-[17px] font-semibold tracking-tight text-ink">Le tue disponibilità</h2>
+        {slotsQuery.isLoading && <p className="text-sm text-ink-soft">Caricamento…</p>}
         {!slotsQuery.isLoading && slots.length === 0 && (
-          <p className="text-sm text-slate-500">Non hai ancora impostato nessuna disponibilità.</p>
+          <p className="text-sm text-ink-soft">Non hai ancora impostato nessuna disponibilità.</p>
         )}
         <div className="space-y-3">
           {grouped
             .filter((g) => g.slots.length > 0)
             .map((g) => (
               <div key={g.day}>
-                <h3 className="mb-1 text-sm font-semibold text-slate-700">{g.label}</h3>
+                <h3 className="mb-1 text-sm font-semibold text-ink">{g.label}</h3>
                 <ul className="space-y-1">
                   {g.slots.map((slot) => (
                     <li
                       key={slot.id}
-                      className="flex items-center justify-between rounded-lg border border-slate-200 px-3 py-2 text-sm"
+                      className="flex items-center justify-between rounded-xl border border-black/[0.06] px-3 py-2 text-sm"
                     >
                       <span>
                         {slot.start_time.slice(0, 5)} – {slot.end_time.slice(0, 5)}

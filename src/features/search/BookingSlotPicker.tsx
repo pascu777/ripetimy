@@ -50,15 +50,15 @@ export function BookingSlotPicker({ tutorId }: { tutorId: string }) {
   if (confirmed) {
     return (
       <Card>
-        <h2 className="mb-1 text-lg font-semibold text-slate-900">Prenotazione confermata</h2>
-        <p className="text-sm text-slate-600">Trovi la lezione in "Le mie lezioni".</p>
+        <h2 className="mb-1 text-[17px] font-semibold tracking-tight text-ink">Prenotazione confermata</h2>
+        <p className="text-sm text-ink-soft">Trovi la lezione in "Le mie lezioni".</p>
       </Card>
     )
   }
 
   return (
     <Card>
-      <h2 className="mb-4 text-lg font-semibold text-slate-900">Prenota una lezione</h2>
+      <h2 className="mb-4 text-[17px] font-semibold tracking-tight text-ink">Prenota una lezione</h2>
 
       <div className="mb-4">
         <Label htmlFor="duration">Durata</Label>
@@ -78,9 +78,9 @@ export function BookingSlotPicker({ tutorId }: { tutorId: string }) {
         </Select>
       </div>
 
-      {(availabilityQuery.isLoading || busyQuery.isLoading) && <p className="text-sm text-slate-500">Caricamento slot…</p>}
+      {(availabilityQuery.isLoading || busyQuery.isLoading) && <p className="text-sm text-ink-soft">Caricamento slot…</p>}
       {!availabilityQuery.isLoading && !busyQuery.isLoading && slots.length === 0 && (
-        <p className="text-sm text-slate-500">Nessuno slot libero nei prossimi {RANGE_DAYS} giorni per questa durata.</p>
+        <p className="text-sm text-ink-soft">Nessuno slot libero nei prossimi {RANGE_DAYS} giorni per questa durata.</p>
       )}
 
       <div className="max-h-72 space-y-3 overflow-y-auto">
@@ -88,7 +88,7 @@ export function BookingSlotPicker({ tutorId }: { tutorId: string }) {
           const sample = daySlots[0]
           return (
             <div key={dayKey}>
-              <h3 className="mb-1 text-sm font-semibold text-slate-700">
+              <h3 className="mb-1 text-sm font-semibold text-ink">
                 {DAY_LABELS[sample.getDay()]} {sample.toLocaleDateString('it-IT', { day: 'numeric', month: 'short' })}
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -99,10 +99,10 @@ export function BookingSlotPicker({ tutorId }: { tutorId: string }) {
                       setSelected(slot)
                       setConfirmError(null)
                     }}
-                    className={`rounded-lg border px-3 py-1.5 text-sm ${
+                    className={`rounded-xl border px-3 py-1.5 text-sm ${
                       selected?.getTime() === slot.getTime()
-                        ? 'border-indigo-600 bg-indigo-50 text-indigo-700'
-                        : 'border-slate-300 text-slate-700 hover:bg-slate-50'
+                        ? 'border-brand-600 bg-brand-50 text-brand-700'
+                        : 'border-black/10 text-ink hover:bg-black/[0.03]'
                     }`}
                   >
                     {slot.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' })}
@@ -115,8 +115,8 @@ export function BookingSlotPicker({ tutorId }: { tutorId: string }) {
       </div>
 
       {selected && (
-        <div className="mt-5 space-y-3 border-t border-slate-200 pt-4">
-          <p className="text-sm text-slate-700">
+        <div className="mt-5 space-y-3 border-t border-black/[0.06] pt-4">
+          <p className="text-sm text-ink">
             Lezione il <strong>{selected.toLocaleString('it-IT', { dateStyle: 'full', timeStyle: 'short' })}</strong> (
             {durationMinutes} min)
           </p>

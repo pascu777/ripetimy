@@ -29,7 +29,7 @@ export function NotificationsBell() {
             if (unreadIds.length > 0) markRead.mutate(unreadIds)
           }
         }}
-        className="relative rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-100"
+        className="relative rounded-xl px-3 py-2 text-ink-soft hover:bg-black/5"
         aria-label="Notifiche"
       >
         🔔
@@ -42,15 +42,15 @@ export function NotificationsBell() {
       {open && (
         <>
           <div className="fixed inset-0 z-40" onClick={() => setOpen(false)} />
-          <div className="absolute right-0 z-50 mt-2 w-80 rounded-xl border border-slate-200 bg-white p-2 shadow-lg">
-            <p className="px-2 py-1 text-sm font-semibold text-slate-900">Notifiche</p>
-            {notifications.length === 0 && <p className="px-2 py-3 text-sm text-slate-500">Nessuna notifica.</p>}
+          <div className="absolute right-0 z-50 mt-2 w-80 rounded-xl border border-black/[0.06] bg-white p-2 shadow-lg">
+            <p className="px-2 py-1 text-sm font-semibold text-ink">Notifiche</p>
+            {notifications.length === 0 && <p className="px-2 py-3 text-sm text-ink-soft">Nessuna notifica.</p>}
             <div className="max-h-80 space-y-1 overflow-y-auto">
               {notifications.map((n) => (
-                <div key={n.id} className={`rounded-lg px-2 py-2 text-sm ${n.is_read ? '' : 'bg-indigo-50'}`}>
-                  <p className="font-medium text-slate-900">{n.title}</p>
-                  {n.body && <p className="text-slate-600">{n.body}</p>}
-                  <p className="mt-0.5 text-xs text-slate-400">{timeAgo(n.created_at)}</p>
+                <div key={n.id} className={`rounded-xl px-2 py-2 text-sm ${n.is_read ? '' : 'bg-brand-50'}`}>
+                  <p className="font-medium text-ink">{n.title}</p>
+                  {n.body && <p className="text-ink-soft">{n.body}</p>}
+                  <p className="mt-0.5 text-xs text-ink-soft/70">{timeAgo(n.created_at)}</p>
                 </div>
               ))}
             </div>

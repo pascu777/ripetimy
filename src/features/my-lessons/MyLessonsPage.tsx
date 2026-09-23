@@ -15,19 +15,19 @@ export function MyLessonsPage() {
 
   return (
     <div>
-      <h1 className="mb-6 text-2xl font-semibold text-slate-900">Le mie lezioni</h1>
-      {lessonsQuery.isLoading && <p className="text-sm text-slate-500">Caricamento…</p>}
+      <h1 className="mb-6 text-[26px] font-semibold tracking-tight text-ink">Le mie lezioni</h1>
+      {lessonsQuery.isLoading && <p className="text-sm text-ink-soft">Caricamento…</p>}
       {!lessonsQuery.isLoading && lessons.length === 0 && (
-        <p className="text-sm text-slate-500">Non hai ancora prenotato nessuna lezione.</p>
+        <p className="text-sm text-ink-soft">Non hai ancora prenotato nessuna lezione.</p>
       )}
       <div className="space-y-3">
         {lessons.map((lesson) => (
           <Card key={lesson.id} className="flex items-center justify-between">
             <div>
-              <p className="font-semibold text-slate-900">
+              <p className="font-semibold text-ink">
                 {lesson.tutor_name ?? 'Tutor'} {lesson.subject ? `· ${lesson.subject}` : ''}
               </p>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-ink-soft">
                 {new Date(lesson.starts_at).toLocaleString('it-IT', { dateStyle: 'full', timeStyle: 'short' })} ·{' '}
                 {lesson.duration_minutes} min
               </p>
@@ -36,8 +36,8 @@ export function MyLessonsPage() {
                   lesson.status === 'scheduled'
                     ? 'bg-emerald-50 text-emerald-700'
                     : lesson.status === 'canceled'
-                      ? 'bg-slate-100 text-slate-500'
-                      : 'bg-indigo-50 text-indigo-700'
+                      ? 'bg-black/5 text-ink-soft'
+                      : 'bg-brand-50 text-brand-700'
                 }`}
               >
                 {STATUS_LABELS[lesson.status] ?? lesson.status}

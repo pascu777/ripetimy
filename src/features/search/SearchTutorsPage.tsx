@@ -12,7 +12,7 @@ export function SearchTutorsPage() {
 
   return (
     <div>
-      <h1 className="mb-6 text-2xl font-semibold text-slate-900">Cerca un tutor</h1>
+      <h1 className="mb-6 text-[26px] font-semibold tracking-tight text-ink">Cerca un tutor</h1>
       <Card className="mb-6">
         <form
           className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:items-end"
@@ -32,26 +32,26 @@ export function SearchTutorsPage() {
           </div>
           <button
             type="submit"
-            className="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700"
+            className="inline-flex items-center justify-center rounded-xl bg-brand-600 px-4 py-2 text-sm font-medium text-white hover:bg-brand-700"
           >
             Cerca
           </button>
         </form>
       </Card>
 
-      {tutorsQuery.isLoading && <p className="text-sm text-slate-500">Ricerca in corso…</p>}
+      {tutorsQuery.isLoading && <p className="text-sm text-ink-soft">Ricerca in corso…</p>}
       {tutorsQuery.data && tutorsQuery.data.length === 0 && (
-        <p className="text-sm text-slate-500">Nessun tutor trovato con questi criteri.</p>
+        <p className="text-sm text-ink-soft">Nessun tutor trovato con questi criteri.</p>
       )}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {tutorsQuery.data?.map((tutor) => (
           <Link key={tutor.id} to={`/tutor/${tutor.id}`}>
-            <Card className="transition hover:border-indigo-300 hover:shadow-md">
-              <h3 className="font-semibold text-slate-900">{tutor.full_name}</h3>
+            <Card className="transition hover:border-brand-300 hover:shadow-md">
+              <h3 className="font-semibold text-ink">{tutor.full_name}</h3>
               {tutor.subjects.length > 0 && (
                 <div className="mt-2 flex flex-wrap gap-1">
                   {tutor.subjects.map((s) => (
-                    <span key={s} className="rounded-full bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-700">
+                    <span key={s} className="rounded-full bg-brand-50 px-2 py-0.5 text-xs font-medium text-brand-700">
                       {s}
                     </span>
                   ))}

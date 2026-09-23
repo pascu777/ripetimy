@@ -14,19 +14,19 @@ export function SignupPage() {
 
   if (done) {
     return (
-      <div className="mx-auto flex min-h-screen max-w-md flex-col justify-center px-4 text-center">
-        <h1 className="mb-2 text-2xl font-semibold text-slate-900">Controlla la tua email</h1>
-        <p className="text-slate-600">
+      <div className="mx-auto flex min-h-screen max-w-md flex-col justify-center bg-canvas px-4 text-center">
+        <h1 className="mb-2 text-[28px] font-semibold tracking-tight text-ink">Controlla la tua email</h1>
+        <p className="text-[15px] text-ink-soft">
           Ti abbiamo inviato un link di conferma. Dopo aver confermato, torna qui per{' '}
-          <Link to="/login" className="font-medium text-indigo-600 hover:underline">accedere</Link>.
+          <Link to="/login" className="font-medium text-brand-600 hover:underline">accedere</Link>.
         </p>
       </div>
     )
   }
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-md flex-col justify-center px-4">
-      <h1 className="mb-6 text-center text-2xl font-semibold text-slate-900">Crea il tuo account RipetiMy</h1>
+    <div className="mx-auto flex min-h-screen max-w-md flex-col justify-center bg-canvas px-4">
+      <h1 className="mb-8 text-center text-[28px] font-semibold tracking-tight text-ink">Crea il tuo account RipetiMy</h1>
       <Card>
         <form
           className="space-y-4"
@@ -46,14 +46,14 @@ export function SignupPage() {
               <button
                 type="button"
                 onClick={() => setRole('tutor')}
-                className={`rounded-lg border px-3 py-2 text-sm font-medium ${role === 'tutor' ? 'border-indigo-600 bg-indigo-50 text-indigo-700' : 'border-slate-300 text-slate-600'}`}
+                className={`rounded-xl border px-3 py-2.5 text-[14px] font-medium transition-colors ${role === 'tutor' ? 'border-brand-500 bg-brand-50 text-brand-700' : 'border-black/10 text-ink-soft hover:bg-black/[0.03]'}`}
               >
                 Sono un tutor
               </button>
               <button
                 type="button"
                 onClick={() => setRole('student')}
-                className={`rounded-lg border px-3 py-2 text-sm font-medium ${role === 'student' ? 'border-indigo-600 bg-indigo-50 text-indigo-700' : 'border-slate-300 text-slate-600'}`}
+                className={`rounded-xl border px-3 py-2.5 text-[14px] font-medium transition-colors ${role === 'student' ? 'border-brand-500 bg-brand-50 text-brand-700' : 'border-black/10 text-ink-soft hover:bg-black/[0.03]'}`}
               >
                 Sono uno studente
               </button>
@@ -77,9 +77,9 @@ export function SignupPage() {
           </Button>
         </form>
       </Card>
-      <p className="mt-4 text-center text-sm text-slate-600">
+      <p className="mt-5 text-center text-[14px] text-ink-soft">
         Hai già un account?{' '}
-        <button onClick={() => navigate('/login')} className="font-medium text-indigo-600 hover:underline">
+        <button onClick={() => navigate('/login')} className="font-medium text-brand-600 hover:underline">
           Accedi
         </button>
       </p>

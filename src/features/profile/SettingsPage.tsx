@@ -21,7 +21,7 @@ export function SettingsPage() {
 
   const profile = profileQuery.data
 
-  if (!profile) return <p className="text-sm text-slate-500">Caricamento…</p>
+  if (!profile) return <p className="text-sm text-ink-soft">Caricamento…</p>
 
   const subjects = profile.subjects ?? []
 
@@ -38,14 +38,14 @@ export function SettingsPage() {
 
   return (
     <div className="max-w-xl space-y-6">
-      <h1 className="text-2xl font-semibold text-slate-900">Impostazioni</h1>
+      <h1 className="text-[26px] font-semibold tracking-tight text-ink">Impostazioni</h1>
 
       <Card>
-        <h2 className="mb-4 text-lg font-semibold text-slate-900">Profilo</h2>
+        <h2 className="mb-4 text-[17px] font-semibold tracking-tight text-ink">Profilo</h2>
         <div className="space-y-3">
           <div>
             <Label>Email</Label>
-            <p className="text-sm text-slate-600">{session?.user.email}</p>
+            <p className="text-sm text-ink-soft">{session?.user.email}</p>
           </div>
           <div>
             <Label htmlFor="fullName">Nome e cognome</Label>
@@ -62,9 +62,9 @@ export function SettingsPage() {
               </div>
             ) : (
               <div className="flex items-center justify-between">
-                <p className="text-sm text-slate-600">{profile.full_name || '—'}</p>
+                <p className="text-sm text-ink-soft">{profile.full_name || '—'}</p>
                 <button
-                  className="text-sm font-medium text-indigo-600 hover:underline"
+                  className="text-sm font-medium text-brand-600 hover:underline"
                   onClick={() => {
                     setFullName(profile.full_name)
                     setEditingName(true)
@@ -77,12 +77,12 @@ export function SettingsPage() {
           </div>
           <div>
             <Label>Ruolo</Label>
-            <p className="text-sm text-slate-600">{profile.role === 'tutor' ? 'Tutor' : 'Studente'}</p>
+            <p className="text-sm text-ink-soft">{profile.role === 'tutor' ? 'Tutor' : 'Studente'}</p>
           </div>
           {profile.role === 'tutor' && (
             <div>
               <Label>Abbonamento</Label>
-              <p className="text-sm text-slate-600">{SUBSCRIPTION_LABELS[profile.subscription_status] ?? profile.subscription_status}</p>
+              <p className="text-sm text-ink-soft">{SUBSCRIPTION_LABELS[profile.subscription_status] ?? profile.subscription_status}</p>
             </div>
           )}
         </div>
@@ -90,16 +90,16 @@ export function SettingsPage() {
 
       {profile.role === 'tutor' && (
         <Card>
-          <h2 className="mb-4 text-lg font-semibold text-slate-900">Materie insegnate</h2>
+          <h2 className="mb-4 text-[17px] font-semibold tracking-tight text-ink">Materie insegnate</h2>
           <div className="mb-4 flex flex-wrap gap-2">
-            {subjects.length === 0 && <p className="text-sm text-slate-500">Nessuna materia impostata.</p>}
+            {subjects.length === 0 && <p className="text-sm text-ink-soft">Nessuna materia impostata.</p>}
             {subjects.map((s) => (
               <span
                 key={s}
-                className="flex items-center gap-1 rounded-full bg-indigo-50 px-3 py-1 text-sm font-medium text-indigo-700"
+                className="flex items-center gap-1 rounded-full bg-brand-50 px-3 py-1 text-sm font-medium text-brand-700"
               >
                 {s}
-                <button onClick={() => removeSubject(s)} className="text-indigo-400 hover:text-indigo-700" aria-label={`Rimuovi ${s}`}>
+                <button onClick={() => removeSubject(s)} className="text-brand-500/60 hover:text-brand-700" aria-label={`Rimuovi ${s}`}>
                   ✕
                 </button>
               </span>

@@ -55,7 +55,7 @@ export function LessonForm({
           value={studentName}
           onChange={(e) => setStudentName(e.target.value)}
         />
-        {readOnlyStudent && <p className="mt-1 text-xs text-slate-500">Lezione prenotata dallo studente.</p>}
+        {readOnlyStudent && <p className="mt-1 text-xs text-ink-soft">Lezione prenotata dallo studente.</p>}
       </div>
       <div>
         <Label htmlFor="subject">Materia (opzionale)</Label>
@@ -70,7 +70,7 @@ export function LessonForm({
             required
             value={startsAt}
             onChange={(e) => setStartsAt(e.target.value)}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+            className="w-full rounded-xl border border-black/10 px-3 py-2 text-sm outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500"
           />
         </div>
         <div>
