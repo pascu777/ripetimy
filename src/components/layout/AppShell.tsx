@@ -1,10 +1,12 @@
 import { NavLink, Outlet } from 'react-router-dom'
 import { useProfile } from '@/features/profile/hooks'
 import { useSignOut } from '@/features/auth/hooks'
+import { NotificationsBell } from '@/features/notifications/NotificationsBell'
 
 const tutorLinks = [
   { to: '/agenda', label: 'Agenda' },
   { to: '/disponibilita', label: 'Disponibilità' },
+  { to: '/studenti', label: 'I miei studenti' },
   { to: '/impostazioni', label: 'Impostazioni' },
 ]
 
@@ -36,6 +38,7 @@ export function AppShell() {
                 {link.label}
               </NavLink>
             ))}
+            <NotificationsBell />
             <button
               onClick={() => signOut.mutate()}
               className="ml-2 rounded-lg px-3 py-2 text-sm font-medium text-slate-500 hover:bg-slate-100"

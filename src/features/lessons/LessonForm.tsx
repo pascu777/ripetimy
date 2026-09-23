@@ -92,7 +92,7 @@ export function LessonForm({
       <div className="flex items-center justify-between pt-2">
         {onDelete ? (
           <Button type="button" variant="danger" onClick={onDelete}>
-            Elimina
+            {initial?.source === 'booking' ? 'Annulla lezione' : 'Elimina'}
           </Button>
         ) : (
           <span />

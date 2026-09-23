@@ -11,6 +11,7 @@ import { SettingsPage } from '@/features/profile/SettingsPage'
 import { SearchTutorsPage } from '@/features/search/SearchTutorsPage'
 import { TutorDetailPage } from '@/features/search/TutorDetailPage'
 import { MyLessonsPage } from '@/features/my-lessons/MyLessonsPage'
+import { MyStudentsPage } from '@/features/portfolio/MyStudentsPage'
 
 export const router = createBrowserRouter([
   { path: '/', element: <LandingPage /> },
@@ -29,6 +30,7 @@ export const router = createBrowserRouter([
             children: [
               { path: '/agenda', element: <AgendaPage /> },
               { path: '/disponibilita', element: <AvailabilityPage /> },
+              { path: '/studenti', element: <MyStudentsPage /> },
             ],
           },
           {
