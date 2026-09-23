@@ -138,7 +138,10 @@ export function BookingSlotPicker({ tutorId }: { tutorId: string }) {
                 { tutorId, startsAt: selected, durationMinutes, subject, notes },
                 {
                   onSuccess: () => setConfirmed(true),
-                  onError: (err) => setConfirmError(err instanceof Error ? err.message : 'Slot non più disponibile, riprova.'),
+                  onError: (err) =>
+                    setConfirmError(
+                      (err as { message?: string } | null)?.message || 'Slot non più disponibile, riprova.',
+                    ),
                 },
               )
             }}
